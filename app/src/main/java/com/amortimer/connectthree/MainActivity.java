@@ -27,8 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView counter = (ImageView) view;
 
-        // System.out.println(counter.getTag().toString());
-
         int tappedCounter = Integer.parseInt(counter.getTag().toString());
 
         if (gameState[tappedCounter] == 2 && gameIsActive) {
@@ -42,11 +40,13 @@ public class MainActivity extends AppCompatActivity {
                 counter.setImageResource(R.drawable.yellow);
 
                 activePlayer = 1;
+
             } else {
 
                 counter.setImageResource(R.drawable.red);
 
                 activePlayer = 0;
+
             }
 
             counter.animate().translationYBy(1000f).rotation(360).setDuration(300);
@@ -69,9 +69,6 @@ public class MainActivity extends AppCompatActivity {
 
                     }
 
-
-
-
                     TextView winnerMessage = (TextView) findViewById(R.id.winnerMessage);
 
                     winnerMessage.setText(winner + " has won!");
@@ -88,17 +85,17 @@ public class MainActivity extends AppCompatActivity {
 
                         if (counterState == 2) gameIsOver = false;
 
+                    }
 
-                        if (gameIsOver) {
+                    if (gameIsOver) {
 
-                            TextView winnerMessage = (TextView) findViewById(R.id.winnerMessage);
+                        TextView winnerMessage = (TextView) findViewById(R.id.winnerMessage);
 
-                            winnerMessage.setText("It's a draw!");
+                        winnerMessage.setText("It's a draw!");
 
-                            LinearLayout layout = (LinearLayout)findViewById(R.id.playAgainLayout);
+                        LinearLayout layout = (LinearLayout)findViewById(R.id.playAgainLayout);
 
-                            layout.setVisibility(View.VISIBLE);
-                        }
+                        layout.setVisibility(View.VISIBLE);
                     }
                 }
             }
